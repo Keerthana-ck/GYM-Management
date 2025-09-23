@@ -1,13 +1,13 @@
 def get_data():
     return {
-        "fieldname": "membership",
+        "fieldname": "member",
         "non_standard_fieldnames": {
-            "Item": "item_name"
+            "Customer": "customer_name"
         },
         "transactions": [
             {
-                "label": "Item",
-                "items": ["Item"]
+                "label": "Customer",
+                "items": ["Customer"]
             },
         ],
     }
