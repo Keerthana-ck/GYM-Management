@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:member_name",
  "creation": "2025-09-23 14:24:35.883559",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,12 +11,13 @@
   "dob",
   "age",
   "mobile_number",
-  "column_break_bpoq",
   "gender",
+  "photo",
+  "column_break_bpoq",
   "email",
   "status",
   "address",
-  "primary_address",
+  "id_proof",
   "health_info_section",
   "height",
   "weight",
@@ -36,7 +38,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Member Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "depends_on": "eval:doc.dob",
@@ -128,23 +131,30 @@
   },
   {
    "fieldname": "address",
-   "fieldtype": "Link",
+   "fieldtype": "Small Text",
    "label": "Address",
    "options": "Address"
   },
   {
-   "fieldname": "primary_address",
-   "fieldtype": "Small Text",
-   "label": "Primary Address"
+   "fieldname": "photo",
+   "fieldtype": "Attach",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "id_proof",
+   "fieldtype": "Attach",
+   "label": "ID Proof",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-23 17:03:37.812686",
+ "modified": "2025-09-23 17:23:23.272299",
  "modified_by": "Administrator",
  "module": "Gym Management",
  "name": "Member",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
