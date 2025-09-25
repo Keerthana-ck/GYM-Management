@@ -5,7 +5,7 @@ from frappe.model.document import Document
 
 
 class Member(Document):
-	def validate(self):
+	def after_save(self):
 		self.create_customer_against_member()
 
 	def create_customer_against_member(self):

@@ -15,5 +15,18 @@ frappe.ui.form.on('Member', {
         } else {
             frm.set_value('age', null);
         }
+    },
+    refresh(frm){
+      if(frm.doc.status == "Active"){
+        frm.add_custom_button(('Registration'), function() {
+          frappe.new_doc('Membership Register', {
+            member : frm.doc.member_name,
+            phone_number : frm.doc.mobile_number,
+            gender : frm.doc.gender,
+            email : frm.doc.email,
+            age : frm.doc.age
+          });
+        }, ('Create'));
+      }
     }
 });
