@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:MR-{member}-{membership_plan}-{MM}-{YYYY}",
  "creation": "2025-09-23 17:51:51.675399",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,25 +10,33 @@
   "amended_from",
   "member",
   "phone_number",
+  "email",
   "column_break_xwbm",
   "gender",
-  "email",
+  "age",
   "register_date",
   "section_break_hjpx",
   "trainer",
   "membership_plan",
-  "amount",
+  "membership_status",
+  "plan",
   "column_break_unjf",
   "start_date",
   "end_date",
   "durationdays",
+  "section_break_epss",
+  "amount",
+  "register_fee",
+  "column_break_qbpy",
+  "total_amount",
   "section_break_qthp",
   "remarks"
  ],
  "fields": [
   {
    "fieldname": "section_break_d709",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Member Details"
   },
   {
    "fieldname": "amended_from",
@@ -71,30 +80,31 @@
   },
   {
    "fieldname": "section_break_hjpx",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Membership Details"
   },
   {
    "fieldname": "trainer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Trainer",
-   "options": "Trainer"
+   "options": "Trainer",
+   "reqd": 1
   },
   {
    "fieldname": "membership_plan",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Membership Plan",
-   "options": "Membership Plan"
-  },
-  {
-   "fetch_from": "membership_plan.amount",
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "label": "Amount"
+   "options": "Membership Plan",
+   "reqd": 1
   },
   {
    "default": "Today",
    "fieldname": "register_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Register Date",
    "reqd": 1
   },
@@ -106,16 +116,19 @@
    "default": "Today",
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date"
+   "label": "Start Date",
+   "reqd": 1
   },
   {
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
+   "label": "End Date",
+   "reqd": 1
   },
   {
    "fieldname": "durationdays",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Duration(Days)"
   },
   {
@@ -124,18 +137,69 @@
   },
   {
    "fieldname": "remarks",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "label": "Remarks"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "membership_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Membership Status",
+   "options": "\nActive\nPending\nSuspend\nExpired\nCancelled",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fetch_from": "membership_plan.amount",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "membership_plan.membership",
+   "fieldname": "plan",
+   "fieldtype": "Data",
+   "label": "Plan"
+  },
+  {
+   "fieldname": "register_fee",
+   "fieldtype": "Currency",
+   "label": "Register Fee"
+  },
+  {
+   "fieldname": "section_break_epss",
+   "fieldtype": "Section Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "column_break_qbpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2025-09-23 23:14:16.146328",
+ "modified": "2025-09-25 10:31:29.900992",
  "modified_by": "Administrator",
  "module": "Gym Management",
  "name": "Membership Register",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -148,7 +212,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],

@@ -6,6 +6,30 @@ frappe.ui.form.on("Membership Register", {
     },
     start_date(frm) {
         calculate_duration(frm);
+    },
+    amount(frm){
+      calculate_total_amount(frm);
+    },
+    register_fee(frm){
+      if(frm.doc.amount && frm.doc.register_fee){
+        frm.set_value("total_amount", frm.doc.amount + frm.doc.register_fee);
+      }
+      else{
+        frm.set_value("total_amount", frm.doc.amount);
+      }
+    },
+    plan(frm){
+      if(frm.doc.amount){
+        frm.set_value("total_amount", frm.doc.amount);
+      }
+    },
+    refresh(frm){
+      if(!frm.is_new()){
+        frm.add_custom_button(('Sales Invoice'), function() {
+
+        }, ('Create'));
+
+      }
     }
 });
 

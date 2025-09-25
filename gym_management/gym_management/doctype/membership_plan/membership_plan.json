@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:membership",
  "creation": "2025-09-23 12:52:17.085458",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -38,11 +37,10 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-23 15:45:54.735004",
+ "modified": "2025-09-24 12:15:42.783000",
  "modified_by": "Administrator",
  "module": "Gym Management",
  "name": "Membership Plan",
- "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
