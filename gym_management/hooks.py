@@ -137,24 +137,23 @@ app_license = "unlicense"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Sales Invoice": {
+		"on_submit": "gym_management.gym_management.doc_event.sales_invoice.change_membership_status",
+
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"gym_management.tasks.all"
 # 	],
-# 	"daily": [
-# 		"gym_management.tasks.daily"
-# 	],
+	"daily": [
+		"gym_management.gym_management.doctype.membership_register.membership_register.change_status_expired"
+	],
 # 	"hourly": [
 # 		"gym_management.tasks.hourly"
 # 	],
@@ -164,7 +163,7 @@ app_license = "unlicense"
 # 	"monthly": [
 # 		"gym_management.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------

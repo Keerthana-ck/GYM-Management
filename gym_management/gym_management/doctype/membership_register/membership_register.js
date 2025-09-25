@@ -23,14 +23,25 @@ frappe.ui.form.on("Membership Register", {
         frm.set_value("total_amount", frm.doc.amount);
       }
     },
-    refresh(frm){
-      if(!frm.is_new()){
-        frm.add_custom_button(('Sales Invoice'), function() {
-
-        }, ('Create'));
-
-      }
-    }
+    refresh(frm) {
+         if (!frm.is_new()) {
+             frm.add_custom_button(('Sales Invoice'), function () {
+                 frappe.new_doc('Sales Invoice', {
+                     customer: frm.doc.member,
+                     custom_reference_id : frm.doc.name
+                 }, (si) => {
+                     if (si.items && si.items.length === 1 && !si.items[0].item_code) {
+                         si.items = [];
+                     }
+                     let row = frappe.model.add_child(si, 'items');
+                     row.item_code = frm.doc.membership_plan;
+                     row.item_name = frm.doc.membership_plan;
+                     row.qty = 1;
+                     row.rate = frm.doc.total_amount;
+                 });
+             }, ('Create'));
+         }
+     }
 });
 
 function calculate_duration(frm) {
