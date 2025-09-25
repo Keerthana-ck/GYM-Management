@@ -5,15 +5,17 @@ from frappe.model.document import Document
 
 
 class Member(Document):
-	def after_save(self):
-		self.create_customer_against_member()
+    def validate(self):
+        self.create_customer_against_member()
 
-	def create_customer_against_member(self):
-		"""Method to Create Customer Against Member """
-		if frappe.db.exists("Customer", self.name):
-			frappe.throw("{0} Already Exists".format(self.name))
-		customer = frappe.new_doc("Customer")
-		customer.customer_name = self.name
-		customer.customer_type = "Individual"
-		customer.gender = self.gender
-		customer.save()
+    def create_customer_against_member(self):
+        """Method to Create Customer Against Member"""
+        if frappe.db.exists("Customer", {"customer_name": self.name}):
+            return
+
+        customer = frappe.new_doc("Customer")
+        customer.customer_name = self.name
+        customer.customer_type = "Individual"
+        customer.gender = self.gender
+        customer.insert(ignore_permissions=True)
+        frappe.msgprint(f"Customer {customer.name} created for Member {self.name}")

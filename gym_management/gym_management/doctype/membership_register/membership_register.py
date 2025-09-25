@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import getdate, today
 
 
 class MembershipRegister(Document):
@@ -23,3 +24,22 @@ class MembershipRegister(Document):
 	    )
 	    if overlapping:
 	        frappe.throw("This member already has a membership within the selected date range.")
+
+def change_status_expired():
+    """Daily job: Change status to Expired if end_date is over"""
+    expired_memberships = frappe.get_all(
+        "Membership Register",
+        filters={"end_date": ("<", frappe.utils.today()), "membership_status": ["!=", "Expired"]},
+        fields=["name", "member"]
+    )
+
+    for membership in expired_memberships:
+        frappe.db.set_value("Membership Register", membership.name, "membership_status", "Expired")
+
+        if membership.member:
+            if frappe.db.exists("Member", membership.member):
+                current_status = frappe.db.get_value("Member", membership.member, "status")
+                if current_status != "Expired":
+                    frappe.db.set_value("Member", membership.member, "status", "Expired")
+
+    frappe.db.commit()
