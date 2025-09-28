@@ -12,11 +12,11 @@
  "fields": [
   {
    "fieldname": "membership",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Plan",
-   "reqd": 1,
-   "unique": 1
+   "options": "Plan",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
@@ -37,7 +37,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-24 12:15:42.783000",
+ "modified": "2025-09-26 10:35:27.746268",
  "modified_by": "Administrator",
  "module": "Gym Management",
  "name": "Membership Plan",
