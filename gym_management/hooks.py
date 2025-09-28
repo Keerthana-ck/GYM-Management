@@ -153,6 +153,7 @@ scheduler_events = {
 # 	],
 	"daily": [
 		"gym_management.gym_management.doctype.membership_register.membership_register.change_status_expired"
+
 	],
 # 	"hourly": [
 # 		"gym_management.tasks.hourly"

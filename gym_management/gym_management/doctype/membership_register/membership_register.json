@@ -15,11 +15,12 @@
   "gender",
   "age",
   "register_date",
+  "member_shift",
   "section_break_hjpx",
   "trainer",
+  "plan",
   "membership_plan",
   "membership_status",
-  "plan",
   "column_break_unjf",
   "start_date",
   "end_date",
@@ -113,7 +114,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "Today",
    "fieldname": "start_date",
    "fieldtype": "Date",
    "label": "Start Date",
@@ -165,10 +165,11 @@
    "reqd": 1
   },
   {
-   "fetch_from": "membership_plan.membership",
    "fieldname": "plan",
-   "fieldtype": "Data",
-   "label": "Plan"
+   "fieldtype": "Link",
+   "label": "Plan",
+   "options": "Plan",
+   "reqd": 1
   },
   {
    "fieldname": "register_fee",
@@ -190,12 +191,19 @@
    "label": "Total Amount",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "member_shift",
+   "fieldtype": "Link",
+   "label": "Member Shift",
+   "options": "Shift Type",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-25 10:31:29.900992",
+ "modified": "2025-09-26 10:52:58.758040",
  "modified_by": "Administrator",
  "module": "Gym Management",
  "name": "Membership Register",

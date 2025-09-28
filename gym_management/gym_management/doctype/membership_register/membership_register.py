@@ -25,6 +25,7 @@ class MembershipRegister(Document):
 	    if overlapping:
 	        frappe.throw("This member already has a membership within the selected date range.")
 
+
 def change_status_expired():
     """Daily job: Change status to Expired if end_date is over"""
     expired_memberships = frappe.get_all(
@@ -35,6 +36,20 @@ def change_status_expired():
 
     for membership in expired_memberships:
         frappe.db.set_value("Membership Register", membership.name, "membership_status", "Expired")
+        subject = "Membership is Expired"
+        message = f"""
+	        <p>Dear {membership.member},</p>
+	        <p>Your Membership <b>{membership.name}</b> is Expired. Please Renew the Membership <b>{membership.name}</b>.</p>
+	        <p>Thank you,<br>Team</p>
+        """
+
+        frappe.sendmail(
+	        recipients=[membership.email],
+	        subject=subject,
+	        message=message,
+	        reference_doctype=membership.doctype,
+	        reference_name=membership.name
+	    )
 
         if membership.member:
             if frappe.db.exists("Member", membership.member):
