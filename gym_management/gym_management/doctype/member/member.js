@@ -17,7 +17,7 @@ frappe.ui.form.on('Member', {
         }
     },
     refresh(frm){
-      if(frm.doc.status == "Pending"){
+      if(frm.doc.status == "Pending" && !(frm.is_new())){
         frm.add_custom_button(('Registration'), function() {
           frappe.new_doc('Membership Register', {
             member : frm.doc.member_name,
