@@ -1,0 +1,84 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"7eX-8KRqJl\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">GYM Management</span>\",\"col\":12}},{\"id\":\"DLnxoGrp9g\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Register\",\"col\":3}},{\"id\":\"jdv7TuYuLp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trainer\",\"col\":3}},{\"id\":\"8WJVMqir3B\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Member\",\"col\":3}},{\"id\":\"ad3OeZ1k1K\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Plan\",\"col\":3}},{\"id\":\"b1RH5l-aYZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Plan\",\"col\":3}},{\"id\":\"09iFkfXCQG\",\"type\":\"paragraph\",\"data\":{\"text\":\"View\",\"col\":12}},{\"id\":\"OxxK35iUfk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Report\",\"col\":3}},{\"id\":\"tLa8IV8Puj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Membership Dashboard\",\"col\":3}}]",
+ "creation": "2025-09-25 11:02:19.659879",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "GYM Management",
+ "links": [],
+ "modified": "2025-09-29 12:25:13.358261",
+ "modified_by": "Administrator",
+ "module": "Gym Management",
+ "name": "GYM Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Membership Register",
+   "link_to": "Membership Register",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Membership Dashboard",
+   "link_to": "Membership Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Trainer",
+   "link_to": "Trainer",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Membership Report",
+   "link_to": "Membership Report",
+   "report_ref_doctype": "Membership Register",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Member",
+   "link_to": "Member",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Membership Plan",
+   "link_to": "Membership Plan",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Plan",
+   "link_to": "Plan",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "GYM Management"
+}
