@@ -1,0 +1,40 @@
+{
+ "cards": [
+  {
+   "card": "Active Members"
+  },
+  {
+   "card": "Pending Members"
+  },
+  {
+   "card": "Expired Members"
+  },
+  {
+   "card": "Active Membership"
+  },
+  {
+   "card": "Expired Membership"
+  },
+  {
+   "card": "Total Membership"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Membership Dashbord",
+   "width": "Full"
+  }
+ ],
+ "creation": "2025-09-29 12:22:53.441230",
+ "dashboard_name": "Membership Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2025-09-29 12:25:34.547170",
+ "modified_by": "Administrator",
+ "module": "Gym Management",
+ "name": "Membership Dashboard",
+ "owner": "Administrator"
+}
